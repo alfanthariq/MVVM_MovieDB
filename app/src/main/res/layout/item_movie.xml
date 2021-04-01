@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        android:id="@+id/container"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_middle"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless" tools:targetApi="lollipop"
+        tools:ignore="UnusedAttribute">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/spacing_middle">
+
+        <ImageView
+                android:id="@+id/imgPoster"
+                android:layout_width="92dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="@dimen/spacing_middle">
+
+            <TextView
+                    android:id="@+id/txtJudul"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Judul"
+                    android:textColor="@color/selectedToggle"
+                    android:textSize="@dimen/font_smlarge"/>
+
+            <TextView
+                    android:id="@+id/txtOverview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="5"
+                    android:text="Overview"
+                    android:textSize="@dimen/font_xmedium"/>
+
+            <TextView
+                    android:id="@+id/txtReleaseDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Release date"
+                    android:textSize="@dimen/font_xmedium"
+                    android:layout_marginTop="@dimen/spacing_middle"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

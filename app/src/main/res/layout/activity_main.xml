@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".features.view.MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.NoActionBar.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <RelativeLayout
+            android:id="@+id/flContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rec_movies"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="vertical"/>
+
+            <RelativeLayout
+                    android:id="@+id/empty_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="100dp"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:visibility="visible">
+
+                <ImageButton
+                        android:id="@+id/empty_image"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerHorizontal="true"
+                        android:indeterminate="true"
+                        android:scaleType="fitXY"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/document"
+                        android:visibility="visible"
+                        android:layout_marginBottom="@dimen/spacing_middle"/>
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/empty_image"
+                        android:text="No data found"
+                        android:textAlignment="center"
+                        android:textSize="18sp" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:alpha="0"
+                android:visibility="gone"
+                android:id="@+id/dim"
+                android:fitsSystemWindows="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/black">
+
+            <ImageView
+                    android:id="@+id/img_blur"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+        </RelativeLayout>
+
+        <LinearLayout
+                android:id="@+id/contentGenres"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/spacing_medium"
+                android:paddingLeft="@dimen/spacing_medium"
+                android:paddingRight="@dimen/spacing_medium"
+                android:paddingBottom="?attr/actionBarSize"
+                android:orientation="vertical"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/rounded_up_corner_bg">
+
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:id="@+id/textView"
+                    android:gravity="center_horizontal"
+                    android:src="@drawable/minus"
+                    app:tint="@color/grey_500" />
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="@dimen/spacing_medium"
+                        android:layout_marginBottom="@dimen/spacing_middle"
+                        android:paddingLeft="@dimen/spacing_middle"
+                        android:text="Genres"/>
+
+                <TextView
+                        android:id="@+id/txtClearSelection"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/clear"
+                        android:textSize="12sp"
+                        android:layout_marginRight="@dimen/spacing_middle"/>
+            </LinearLayout>
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+                    android:id="@+id/genresGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:toggle_requiredAmount="0"
+                    app:justifyContent="flex_start"
+                    app:flexWrap="wrap"/>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="end"
+                    android:paddingBottom="@dimen/spacing_medium">
+
+                <Button
+                        android:id="@+id/btnApply"
+                        android:layout_width="150dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/round_button"
+                        android:layout_margin="@dimen/spacing_middle"
+                        android:textAllCaps="false"
+                        android:textColor="@color/iconTextColor"
+                        android:text="Apply"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:visibility="gone"
+                app:backgroundTint="@color/selectedToggle"
+                android:layout_alignParentRight="true"
+                android:layout_margin="@dimen/spacing_middle"
+                android:tint="@color/iconTextColor"
+                android:src="@drawable/ic_up"/>
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

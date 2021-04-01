@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/grey_900</color>
+    <color name="colorPrimaryDark">@color/grey_900</color>
+    <color name="colorAccent">#f9ad3c</color>
+
+    <color name="colorControlActivated">#80f9ad3c</color>
+
+    <color name="toolbarIconTextColor">@color/grey_200</color>
+    <color name="toolbarColor">@color/colorPrimary</color>
+
+    <color name="iconTextColorRevert">@color/grey_200</color>
+    <color name="iconTextColor">@color/grey_900</color>
+    <color name="bgColor1">@color/grey_850</color>
+    <color name="bgColor2">@color/grey_900</color>
+
+    <color name="bgToggle">@color/grey_800</color>
+    <color name="selectedToggle">@color/colorAccent</color>
+
+    <color name="windowsBg">@color/grey_850</color>
+</resources>
